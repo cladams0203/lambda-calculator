@@ -1,5 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+}
+
 .container {
   background-color: red;
   margin: 0 auto;
   width: 470px;
+  padding: 20px;
 }
+
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 45%;
+  padding: 15px;
+}
+.logo {
+  width: 75%;
+}
+.display {
+  width: 93%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-size: 5rem;
+  margin-top: 5px;
+  padding: 15px;
+  border-radius: 5rem;
+}
+
