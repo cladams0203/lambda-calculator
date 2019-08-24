@@ -16,17 +16,22 @@ function App() {
   // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
-  const [displayState, setDisplayState] = useState([0]);
+  const [displayState, setDisplayState] = useState('');
 
   const accumulator = (input) => {
-    setDisplayState([...displayState, input]);
+    setDisplayState(displayState + input);
   }
-  const [number, setNumber] =useState([])
+  const [mathOpper, setMathOpper] = useState('')
 
-  const total = (input) => {
-      setNumber(...number, input)
+  const operation = (input) => {
+      if (input === '=') {
+          setDisplayState(eval(`${mathOpper}${displayState}`))
+      }else {
+          setMathOpper(`${mathOpper} ${displayState} ${input}`)
+          setDisplayState('')
+      }
   }
- console.log(number)
+
 
 
   return (
@@ -36,10 +41,10 @@ function App() {
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
         <div className='left-numbers'>
-          <Specials setDisplay={setDisplayState}  />
+          <Specials setDisplay={setDisplayState} setMathOpper={setMathOpper} />
           <Numbers display={displayState} accumulator={accumulator} />
         </div>
-          <Operators total={total} />
+          <Operators operation={operation} />
       </div>
     </div>
   );

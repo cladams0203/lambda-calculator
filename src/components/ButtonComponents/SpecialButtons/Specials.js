@@ -17,6 +17,7 @@ const Specials = (props) => {
          return <SpecialButton 
          special={item} 
          setDisplay={props.setDisplay}
+         setMathOpper={props.setMathOpper}
          key={i}
          />
        })}
