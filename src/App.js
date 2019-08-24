@@ -21,9 +21,13 @@ function App() {
   const accumulator = (input) => {
     setDisplayState([...displayState, input]);
   }
+  const [number, setNumber] =useState([])
 
-  
-  
+  const total = (input) => {
+      setNumber(...number, input)
+  }
+ console.log(number)
+
 
   return (
     <div className="container">
@@ -35,7 +39,7 @@ function App() {
           <Specials setDisplay={setDisplayState}  />
           <Numbers display={displayState} accumulator={accumulator} />
         </div>
-          <Operators />
+          <Operators total={total} />
       </div>
     </div>
   );
